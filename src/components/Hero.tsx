@@ -4,7 +4,7 @@ import NyungLogo from "../assets/images/Logo.png";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row py-[50px] px-4 lg:px-[60px]">
+    <div className="flex flex-col lg:flex-row py-5 lg:py-[50px] px-4 lg:px-[60px]">
       <motion.div
         className="lg:w-[63%] justify-center content-center space-y-6"
         initial={{ opacity: 0, x: -100 }} 
