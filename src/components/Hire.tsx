@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; 
 
 const reasons = [
   {
@@ -31,10 +32,21 @@ const WhyHireMe = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {reasons.map((reason, index) => (
-          <div key={index} className="border-l-4 border-[#6B9999] pl-4 my-4 lg:my-0">
-            <h3 className="text-lg lg:text-2xl text-[#494640] font-bold font-nunito mb-2">{reason.title}</h3>
-            <p className="text-base lg:text-xl text-[#7B7770] font-nunito font-normal">{reason.description}</p>
-          </div>
+          <motion.div
+            key={index}
+            className="border-l-4 border-[#6B9999] pl-4 my-4 lg:my-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }} 
+            transition={{ duration: 0.5 }} 
+          >
+            <h3 className="text-lg lg:text-2xl text-[#494640] font-bold font-nunito mb-2">
+              {reason.title}
+            </h3>
+            <p className="text-base lg:text-xl text-[#7B7770] font-nunito font-normal">
+              {reason.description}
+            </p>
+          </motion.div>
         ))}
       </div>
     </div>

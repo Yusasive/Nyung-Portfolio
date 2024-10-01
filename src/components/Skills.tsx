@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion"; 
 const cardData = [
   {
     title: "UX Design",
@@ -71,11 +71,16 @@ const Skills = () => {
           My skills
         </h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20  justify-items-center items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 justify-items-center items-center">
         {cardData.map((card, index) => (
-          <div
+          <motion.div
             key={index}
-            className={`${card.bgColor} p-7 rounded-lg shadow-lg shadow-[#00000066] text-center w-[300px] h-[300px] flex flex-col justify-between`}>
+            className={`${card.bgColor} p-7 rounded-lg shadow-lg shadow-[#00000066] text-center w-[300px] h-[300px] flex flex-col justify-between`}
+            whileHover={{ scale: 1.1 }} 
+            initial={{ opacity: 0, y: 50 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
             <img
               src={card.icon}
               alt={card.title}
@@ -84,7 +89,7 @@ const Skills = () => {
             <h3 className="text-2xl text-[#625E57] font-roboto-serif font-bold">
               {card.title}
             </h3>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
