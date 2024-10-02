@@ -30,16 +30,16 @@ const truncateText = (text: string, maxLength: number) => {
 
 const BlogPosts: React.FC = () => {
   return (
-    <div className="grid gap-6 px-6 py-6 lg:px-[60px] lg:py-[50px] md:grid-cols-1 lg:grid-cols-1">
+    <div className="grid gap-6 px-6 pb-6 pt-14 lg:px-[60px] lg:pb-[50px] lg:pt-16 md:grid-cols-1 lg:grid-cols-1">
       {blogPosts.map((post) => (
         <div
           key={post.id}
           className="bg-white rounded-lg shadow-md flex flex-col lg:flex-row overflow-hidden">
-          <div className="lg:w-[45%] ">
+          <div className="lg:w-[45%] p-4">
             <img
               src={post.image}
               alt={post.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-xl"
             />
           </div>
           <div className="p-4 lg:w-[55%]">

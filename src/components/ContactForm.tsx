@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "emailjs-com";
+import { useLocation } from "react-router-dom";
 const checkEmailExists = async (email: string): Promise<boolean> => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -44,6 +45,8 @@ const tutorValidationSchema = Yup.object({
 });
 
 const ContactForm = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const designerFormik = useFormik({
     initialValues: {
       name: "",
@@ -56,10 +59,10 @@ const ContactForm = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         await emailjs.send(
-          "YOUR_SERVICE_ID", // Replace with your service ID
-          "YOUR_TEMPLATE_ID", // Replace with your email template ID
+          "YOUR_SERVICE_ID",
+          "YOUR_TEMPLATE_ID",
           values,
-          "YOUR_USER_ID" // Replace with your user ID from EmailJS
+          "YOUR_USER_ID"
         );
         alert("Designer Form Data Sent Successfully!");
         resetForm();
@@ -81,10 +84,10 @@ const ContactForm = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         await emailjs.send(
-          "YOUR_SERVICE_ID", // Replace with your service ID
-          "YOUR_TEMPLATE_ID", // Replace with your email template ID
+          "YOUR_SERVICE_ID",
+          "YOUR_TEMPLATE_ID",
           values,
-          "YOUR_USER_ID" // Replace with your user ID from EmailJS
+          "YOUR_USER_ID"
         );
         alert("Tutor Form Data Sent Successfully!");
         resetForm();
@@ -95,8 +98,8 @@ const ContactForm = () => {
   });
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-[#91C2F2]">
-      <div className="bg-[#91C2F2] py-12 px-4 lg:px-[60px] w-full">
+    <div className={`${isHomePage ? "bg-white" : "bg-[#91C2F2]"} flex flex-col justify-center items-center py-[50px]`}>
+      <div className="bg-inherit px-4 lg:px-[60px] w-full">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -107,7 +110,6 @@ const ContactForm = () => {
             }
           }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Designer Form */}
             <div className="space-y-4">
               <h2 className="text-2xl text-[#1E1B16] font-roboto-serif font-bold">
                 Need a designer?
@@ -119,7 +121,7 @@ const ContactForm = () => {
                     type="text"
                     name="name"
                     placeholder="Your name"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={designerFormik.values.name}
                     onChange={designerFormik.handleChange}
                   />
@@ -134,7 +136,7 @@ const ContactForm = () => {
                     type="email"
                     name="email"
                     placeholder="Email address"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={designerFormik.values.email}
                     onChange={designerFormik.handleChange}
                     onBlur={designerFormik.handleBlur}
@@ -153,7 +155,7 @@ const ContactForm = () => {
                     type="text"
                     name="projectType"
                     placeholder="Project Type (optional)"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={designerFormik.values.projectType}
                     onChange={designerFormik.handleChange}
                   />
@@ -163,7 +165,7 @@ const ContactForm = () => {
                     type="text"
                     name="projectBudget"
                     placeholder="Project Budget"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={designerFormik.values.projectBudget}
                     onChange={designerFormik.handleChange}
                   />
@@ -178,7 +180,7 @@ const ContactForm = () => {
               <textarea
                 name="description"
                 placeholder="Description"
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                 value={designerFormik.values.description}
                 onChange={designerFormik.handleChange}></textarea>
               {designerFormik.errors.description && (
@@ -199,7 +201,7 @@ const ContactForm = () => {
                     type="text"
                     name="name"
                     placeholder="Your name"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={tutorFormik.values.name}
                     onChange={tutorFormik.handleChange}
                   />
@@ -214,7 +216,7 @@ const ContactForm = () => {
                     type="email"
                     name="email"
                     placeholder="Email address"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={tutorFormik.values.email}
                     onChange={tutorFormik.handleChange}
                     onBlur={tutorFormik.handleBlur}
@@ -233,7 +235,7 @@ const ContactForm = () => {
                     type="text"
                     name="interest"
                     placeholder="Interest"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={tutorFormik.values.interest}
                     onChange={tutorFormik.handleChange}
                   />
@@ -248,7 +250,7 @@ const ContactForm = () => {
                     type="text"
                     name="level"
                     placeholder="Level"
-                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                     value={tutorFormik.values.level}
                     onChange={tutorFormik.handleChange}
                   />
@@ -262,7 +264,7 @@ const ContactForm = () => {
               <textarea
                 name="about"
                 placeholder="About you"
-                className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-[#91C2F2] focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
+                className="w-full p-2 border rounded-md focus:outline-none focus:ring border-[#494640] bg-inherit focus:ring-blue-200 placeholder:text-[#494640] placeholder:text-xl placeholder:font-lato placeholder:font-normal"
                 value={tutorFormik.values.about}
                 onChange={tutorFormik.handleChange}></textarea>
               {tutorFormik.errors.about && (
@@ -273,7 +275,7 @@ const ContactForm = () => {
             </div>
           </div>
 
-          <div className="flex justify-center my-[50px]">
+          <div className="flex justify-center mt-[50px]">
             <button
               type="submit"
               className="bg-[#FC9569] text-white text-2xl font-bold font-inter py-2 px-6 rounded-full hover:bg-orange-500 transition flex items-center justify-center gap-2"

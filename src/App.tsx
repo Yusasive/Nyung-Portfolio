@@ -6,11 +6,13 @@ import Blogs from "./pages/Blogs";
 import Navbar from "./components/Navbar";
 import ContactMe from "./components/ContactMe";
 import ContactForm from "./components/ContactForm";
+import ScrollToTop from "./ScrollToTop";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project" element={<Projects />} />

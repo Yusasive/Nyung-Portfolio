@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <nav className="flex flex-row justify-between items-center py-3 px-2 lg:px-[60px] bg-white shadow-md lg:shadow-none">
+    <nav className="fixed top-0 left-0 right-0 flex flex-row justify-between items-center py-3 px-2 lg:px-[60px] bg-white bg-opacity-70 backdrop-blur-md shadow-md z-10">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -21,10 +21,7 @@ const Navbar = () => {
         </h1>
       </motion.div>
 
-      <button
-        onClick={toggleMenu}
-        className="lg:hidden text-black focus:outline-none"
-      >
+      <button onClick={toggleMenu} className="lg:hidden text-black focus:outline-none">
         <svg
           className="w-6 h-6"
           fill="none"
@@ -64,7 +61,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-14 left-0 w-full bg-white shadow-md z-10"
+            className="lg:hidden absolute top-12 left-0 w-full bg-white bg-opacity-80 backdrop-blur-md shadow-md z-10 "
           >
             <NavLink
               to="/"

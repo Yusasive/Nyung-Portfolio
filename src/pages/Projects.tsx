@@ -88,15 +88,15 @@ const ProjectCard: React.FC<Project> = ({
         className="w-full lg:w-[55%] p-4 lg:p-6 rounded-md "
       />
       <div className="p-4 w-full lg:w-[45%] ">
-        <h3 className="text-[32px] font-bold font-roboto-serif text-[#625E57] mb-3">
+        <h3 className="text-2xl lg:text-[32px] font-bold font-roboto-serif text-[#625E57] mb-3">
           {title}
         </h3>
-        <p className="text-xl font-normal font-nunito text-[#7B7770] mb-3 text-justify">
+        <p className="text-lg lg:text-xl font-normal font-nunito text-[#7B7770] mb-3 text-justify">
           {description}
         </p>
         <a
           href={link}
-          className="text-[#7B7770] hover:text-blue-500 text-xl font-nunito font-bold"
+          className="text-[#7B7770] hover:text-blue-500 text-lg lg:text-xl font-nunito font-bold"
           target="_blank"
           rel="noopener noreferrer">
           View Details
@@ -108,7 +108,7 @@ const ProjectCard: React.FC<Project> = ({
 
 const Projects: React.FC = () => {
   return (
-    <div className="w-screen px-4 lg:px-[60px] py-5 lg:py-10">
+    <div className="w-screen px-4 lg:px-[60px] pb-5 pt-12 lg:py-10">
       <h2 className="font-bold font-roboto-serif text-2xl lg:text-[40px] text-[#33302A] py-3 lg:py-[50px]">
         My design projects
       </h2>

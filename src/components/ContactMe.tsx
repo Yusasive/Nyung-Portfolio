@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const contactMethods = [
   {
@@ -25,16 +26,17 @@ const contactMethods = [
 ];
 
 const ContactMe = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   return (
-    <div className="bg-[#91C2F2] py-12 px-4 lg:px-[60px] border-b-[1px] border-[#000]">
+    <div className={`${isHomePage ? "bg-white" : "bg-[#91C2F2]"} py-12 px-4 lg:px-[60px] border-b-[1px] border-[#000]`}>
       <h1 className="text-[28px] lg:text-[40px] text-[#1E1B16] font-roboto-serif font-bold">
         Contact me
       </h1>
       <p className="text-base lg:text-lg text-[#494640] font-lato font-semibold mb-6 lg:mb-12">
         For project and mentorship inquiry
       </p>
-
-      {/* Grid layout for responsiveness */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-[70px]">
         {contactMethods.map((method, index) => (
           <div
