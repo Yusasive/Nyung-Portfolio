@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
 import Navbar from "./components/Navbar";
+import ContactMe from "./components/ContactMe";
+import ContactForm from "./components/ContactForm";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +16,8 @@ const App: React.FC = () => {
         <Route path="/project" element={<Projects />} />
         <Route path="/blogs" element={<Blogs />} />
       </Routes>
+      <ContactMe />
+      <ContactForm />
     </Router>
   );
 };

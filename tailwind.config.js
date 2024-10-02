@@ -7,6 +7,7 @@ module.exports = {
         "roboto-serif": ['"Roboto Serif"', "serif"],
         nunito: ["Nunito", "sans-serif"],
         lato: ["Lato", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },

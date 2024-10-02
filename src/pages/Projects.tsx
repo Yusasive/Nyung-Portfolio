@@ -14,7 +14,7 @@ const projects: Project[] = [
       "A website where Muslims can find lectures, audios, books, and ask questions of their favorite scholars around the globe.",
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1727823479/Home_1_s6p0ao.png",
-    link: "/ulamaa",
+    link: "https://medium.com/@salamiibrahim57/website-design-to-improve-digital-islamic-knowledge-5d4d30561a22",
   },
   {
     title: "Flow Grant",
@@ -22,7 +22,7 @@ const projects: Project[] = [
       "Flow Grant is a platform built to connect innovators and funders in the Flow ecosystem, and also to empower the blockchain’s future.",
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1727823486/Flow_1_hnj0ff.png",
-    link: "/flow-grant",
+    link: "https://medium.com/@salamiibrahim57/flow-grant-ux-ui-case-study-4e201f8e2db4",
   },
   {
     title: "Lavender",
@@ -30,7 +30,7 @@ const projects: Project[] = [
       "Food ordering mobile app designed to make food ordering and tracking easy, with a user friendly interface and navigation.",
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1727823495/apple-606761_1920_1_jfwdxy.png",
-    link: "/lavender",
+    link: "https://www.figma.com/proto/pgt0TDp77jbIEGd2YMk0EL/Lavendar?page-id=216%3A2&fuid=874351982583981638",
   },
   {
     title: "Unimind Jobs",
@@ -38,7 +38,7 @@ const projects: Project[] = [
       "Human resource website created for are hiring managers and those looking for jobs, to connect, employ, and get employed.",
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1727823500/Screenshot_2022-12-13_092004_1_i4bul7.png",
-    link: "/unimind-jobs",
+    link: "https://unimindjob.com",
   },
   {
     title: "H R Website",
@@ -54,7 +54,7 @@ const projects: Project[] = [
       "Jupitapp.co website landing page, web dashboard page, landing page progressive web application and dashboard PWA redesign",
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1727823518/Dashboard_Page_1_qhuzox.png",
-    link: "/jupit",
+    link: "https://www.figma.com/design/qOF6b9gwGn3RgIOCqvYCJp/Jupit?t=SSKlfhRPM6OR97DO-0",
   },
   {
     title: "Landing Page UI",
@@ -62,7 +62,7 @@ const projects: Project[] = [
       "Landing page of an educational institute that focuses on using AI chatbot to create a better learning path",
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1727823526/Screenshot_2023-01-28_234829_1_cop0br.png",
-    link: "/landing-page-ui",
+    link: "https://www.figma.com/design/UpKnSz6jK2Rvb5BeFkVjVG/Minds?node-id=0-1&t=3N1KsxyKxlSkvQ4w-0",
   },
   {
     title: "Peace Flowers",
@@ -70,7 +70,7 @@ const projects: Project[] = [
       "One-page website that makes it easy for users to book and order flowers for their occasions and loved ones.",
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1727823532/Peace_1_j7iube.png",
-    link: "/peace-flowers",
+    link: "https://www.figma.com/proto/zyq3xWJFgSu6qoUw6HShSY/Flower?page-id=0%3A1&node-id=136-2&viewport=52%2C1384%2C0.18&scaling=min-zoom&starting-point-node-id=136%3A2",
   },
 ];
 
@@ -81,13 +81,17 @@ const ProjectCard: React.FC<Project> = ({
   link,
 }) => {
   return (
-    <div className="flex flex-row  bg-white shadow-md shadow-[#7B7770] rounded-lg overflow-hidden">
-      <img src={image} alt={title} className="w-[55%] p-6 rounded-md " />
-      <div className="p-4 w-[45%] ">
+    <div className="flex flex-col lg:flex-row  bg-white shadow-md shadow-[#7B7770] rounded-lg overflow-hidden">
+      <img
+        src={image}
+        alt={title}
+        className="w-full lg:w-[55%] p-4 lg:p-6 rounded-md "
+      />
+      <div className="p-4 w-full lg:w-[45%] ">
         <h3 className="text-[32px] font-bold font-roboto-serif text-[#625E57] mb-3">
           {title}
         </h3>
-        <p className="text-xl font-normal font-nunito text-[#7B7770] mb-3">
+        <p className="text-xl font-normal font-nunito text-[#7B7770] mb-3 text-justify">
           {description}
         </p>
         <a
@@ -104,11 +108,11 @@ const ProjectCard: React.FC<Project> = ({
 
 const Projects: React.FC = () => {
   return (
-    <div className="container px-[60px] py-10">
-      <h2 className="font-bold font-roboto-serif text-[40px] text-[#33302A] py-[50px]">
+    <div className="w-screen px-4 lg:px-[60px] py-5 lg:py-10">
+      <h2 className="font-bold font-roboto-serif text-2xl lg:text-[40px] text-[#33302A] py-3 lg:py-[50px]">
         My design projects
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-14 justify-stretch">
         {projects.map((project, index) => (
           <ProjectCard
             key={index}

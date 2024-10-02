@@ -67,7 +67,7 @@ const Skills = () => {
   return (
     <div className="bg-[#91C2F2] px-1 lg:px-6 pb-14">
       <div>
-        <h1 className="font-bold font-roboto-serif text-[40px] text-[#33302A] py-14 pl-[36px]">
+        <h1 className="font-bold font-roboto-serif text-2xl lg:text-[40px] text-[#33302A] py-14 pl-[36px]">
           My skills
         </h1>
       </div>

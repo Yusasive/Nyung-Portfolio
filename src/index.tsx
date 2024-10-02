@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import "@fontsource/nunito";
 import "@fontsource/lato";
+import '@fontsource/inter';
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(

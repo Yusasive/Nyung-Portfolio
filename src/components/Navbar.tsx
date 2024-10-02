@@ -64,7 +64,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-16 left-0 w-full bg-white shadow-md z-10"
+            className="lg:hidden absolute top-14 left-0 w-full bg-white shadow-md z-10"
           >
             <NavLink
               to="/"

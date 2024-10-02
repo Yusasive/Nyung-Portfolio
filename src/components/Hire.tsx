@@ -43,7 +43,7 @@ const WhyHireMe = () => {
             <h3 className="text-lg lg:text-2xl text-[#494640] font-bold font-nunito mb-2">
               {reason.title}
             </h3>
-            <p className="text-base lg:text-xl text-[#7B7770] font-nunito font-normal">
+            <p className="text-base lg:text-xl text-[#7B7770] font-nunito font-normal text-justify">
               {reason.description}
             </p>
           </motion.div>
