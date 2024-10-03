@@ -66,18 +66,18 @@ const cardData = [
 
 const Skills = () => {
   return (
-    <div className="bg-[#91C2F2] pb-14">
-      <div className="px-4 lg:px-[60px]">
+    <div className="bg-[#91C2F2] pb-14 px-4 lg:px-[60px]">
+      <div>
         <h1 className="font-bold font-roboto-serif text-2xl lg:text-[40px] text-[#33302A] py-14 ">
           My skills
         </h1>
       </div>
-      <div className="px-4 lg:px-[60px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 justify-items-center items-center">
+      <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-40">
           {cardData.map((card, index) => (
             <motion.div
               key={index}
-              className={`${card.bgColor} p-7 rounded-lg shadow-lg shadow-[#00000066] text-center w-[300px] h-[300px] flex flex-col justify-between`}
+              className={`${card.bgColor} p-7 rounded-lg shadow-lg shadow-[#00000066] text-center w-full h-full flex flex-col justify-between content-between `}
               whileHover={{ scale: 1.1 }} 
               initial={{ opacity: 0, y: 50 }} 
               animate={{ opacity: 1, y: 0 }} 
@@ -88,7 +88,7 @@ const Skills = () => {
                 alt={card.title}
                 className="w-28 h-28 mx-auto mb-4 bg-[#fff] p-5 rounded-3xl"
               />
-              <h3 className="text-2xl text-[#625E57] font-roboto-serif font-bold">
+              <h3 className="text-2xl text-[#625E57] font-roboto-serif font-bold pt-16">
                 {card.title}
               </h3>
             </motion.div>
