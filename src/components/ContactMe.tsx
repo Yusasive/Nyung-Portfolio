@@ -41,7 +41,7 @@ const ContactMe = () => {
         {contactMethods.map((method, index) => (
           <div
             key={index}
-            className={`w-full flex items-start p-6 rounded-lg shadow-md shadow-[#1E1B16] ${method.bgColor} hover:shadow-lg transition-shadow duration-300`}>
+            className={`w-full flex items-start p-6 rounded-lg shadow-sm shadow-[#1E1B16] ${method.bgColor} hover:shadow-lg transition-shadow duration-300`}>
             <div className="mr-4">
               <img src={method.icon} alt={method.title} className="w-12 h-12" />
             </div>

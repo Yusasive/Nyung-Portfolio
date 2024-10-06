@@ -59,10 +59,10 @@ const ContactForm = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         await emailjs.send(
-          "YOUR_SERVICE_ID",
-          "YOUR_TEMPLATE_ID",
+          "service_8t5xuyq",
+          "template_zugiozg",
           values,
-          "YOUR_USER_ID"
+          "wd0xWvCGV1lbqb6U-"
         );
         alert("Designer Form Data Sent Successfully!");
         resetForm();
@@ -84,10 +84,10 @@ const ContactForm = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         await emailjs.send(
-          "YOUR_SERVICE_ID",
-          "YOUR_TEMPLATE_ID",
+          "service_8t5xuyq",
+          "template_zugiozg",
           values,
-          "YOUR_USER_ID"
+          "wd0xWvCGV1lbqb6U-"
         );
         alert("Tutor Form Data Sent Successfully!");
         resetForm();
