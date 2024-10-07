@@ -61,8 +61,14 @@ const ContactForm = () => {
         await emailjs.send(
           "service_8t5xuyq",
           "template_zugiozg",
-          values,
-          "wd0xWvCGV1lbqb6U-"
+          {
+            name: values.name,
+            email: values.email,
+            projectType: values.projectType || "", 
+            projectBudget: values.projectBudget,
+            description: values.description,
+          },
+          "WFx0aQzdcj2KQV0Jt"
         );
         alert("Designer Form Data Sent Successfully!");
         resetForm();
@@ -87,7 +93,7 @@ const ContactForm = () => {
           "service_8t5xuyq",
           "template_zugiozg",
           values,
-          "wd0xWvCGV1lbqb6U-"
+          "WFx0aQzdcj2KQV0Jt"
         );
         alert("Tutor Form Data Sent Successfully!");
         resetForm();
@@ -98,7 +104,10 @@ const ContactForm = () => {
   });
 
   return (
-    <div className={`${isHomePage ? "bg-white" : "bg-[#91C2F2]"} flex flex-col justify-center items-center py-[50px]`}>
+    <div
+      className={`${
+        isHomePage ? "bg-white" : "bg-[#91C2F2]"
+      } flex flex-col justify-center items-center py-[50px]`}>
       <div className="bg-inherit px-4 lg:px-[60px] w-full">
         <form
           onSubmit={(e) => {

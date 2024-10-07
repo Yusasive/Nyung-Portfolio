@@ -74,7 +74,7 @@ const TestimonialSlider: React.FC = () => {
         <h2 className="text-[40px] text-[#000] font-roboto-serif font-bold  mb-2">
           Testimonials
         </h2>
-        <p className="text-2xl text-[#494640] font-nunito font-bold">
+        <p className="text-2xl text-[#494640] font-nunito font-bold text-justify">
           Here, you will find some of the great things my employers, co-workers,
           and students are saying about me.
         </p>
