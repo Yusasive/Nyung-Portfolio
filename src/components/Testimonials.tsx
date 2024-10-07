@@ -19,7 +19,8 @@ const testimonials: Testimonial[] = [
     title: "Founder, Unimind Cognition",
     feedback:
       "Abdulsalam Ibrahim Adisa is a wonderful user experience designer who puts his client front and center of his design decisions, it was very wonderful working with him on a human resource website which we had very little time to work on, he showed his credibility is as important to him as his skills, and he was able to come up with a wonderful design, despite the rush and pressure due to time constraints.",
-    image: "/path-to-image/deepak.jpg",
+    image:
+      "https://res.cloudinary.com/ddxssowqb/image/upload/v1728226216/Mask_group_7_nbayfb.png",
     role: "As a designer",
   },
   {
@@ -28,7 +29,8 @@ const testimonials: Testimonial[] = [
     title: "IDEAS Product Design Student",
     feedback:
       "The class was incredibly engaging and interactive, making the learning experience both enjoyable and insightful. I’m so glad I made the decision to shift my career focus from data analysis to product design, it’s been a rewarding change. I haven’t looked back since.",
-    image: "/path-to-image/aishah.jpg",
+    image:
+      "https://res.cloudinary.com/ddxssowqb/image/upload/v1728226399/Mask_group_7_1_eohg90.png",
     role: "As a tutor",
   },
   {
@@ -37,13 +39,14 @@ const testimonials: Testimonial[] = [
     title: "Managing Partner, Cypherdevs Technology",
     feedback:
       "I want to personally express my appreciation for your invaluable contribution to Cypherdevs. You have been a fantastic addition to the team, and your efforts are greatly valued. You've consistently demonstrated professionalism, intelligence, and dedication, setting a high standard for excellence.",
-    image: "/path-to-image/abdulaeez.jpg",
+    image:
+      "https://res.cloudinary.com/ddxssowqb/image/upload/v1728226406/Mask_group_7_2_laalzg.png",
     role: "My personality",
   },
 ];
 
 const sliderSettings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 3,
@@ -66,8 +69,8 @@ const sliderSettings = {
 
 const TestimonialSlider: React.FC = () => {
   return (
-    <section className="lg:px-[60px] bg-[#91C2F2]">
-      <div className="py-[50px]">
+    <section className="bg-[#91C2F2]">
+      <div className="py-[50px] px-4 lg:px-[60px]">
         <h2 className="text-[40px] text-[#000] font-roboto-serif font-bold  mb-2">
           Testimonials
         </h2>
@@ -77,33 +80,38 @@ const TestimonialSlider: React.FC = () => {
         </p>
       </div>
 
-      <Slider {...sliderSettings}>
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="px-4"> 
-            <div className="flex flex-col items-center">
-              <p className="text-xl text-[#fff] font-nunito font-bold mb-1">
-                {testimonial.role}
-              </p>
-              <div className="bg-white rounded-2xl p-4 shadow-lg h- flex flex-col justify-between"> 
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-24 h-24 rounded-full object-cover mb-4"
-                />
-                <h3 className="text-xl text-[#91C2F2] font-nunito font-bold text-center">
-                  {testimonial.name}
-                </h3>
-                <p className="text-xl text-[#960202] font-bold font-nunito text-center mb-4">
-                  {testimonial.title}
+      <div className="px-8 lg:px-[90px]">
+
+        <Slider {...sliderSettings}>
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="py-4">
+              <div className="flex flex-col items-center my-[50px]">
+                <p className="text-xl text-[#fff] font-nunito font-bold mb-[10px]">
+                  {testimonial.role}
                 </p>
-                <p className="text-base text-[#000] font-nunito font-light text-justify overflow-y-auto">
-                  {testimonial.feedback}
-                </p> 
+                <div className="flex flex-col bg-white rounded-2xl  shadow-lg h-[550px] lg:h-[480px] mx-2 justify-between">
+                  <div className="justify-center mx-auto">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="object-cover items-center my-3"
+                    />
+                  </div>
+                  <h3 className="text-xl text-[#91C2F2] font-nunito font-bold text-center">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-xl text-[#960202] font-bold font-nunito text-center mb-4">
+                    {testimonial.title}
+                  </p>
+                  <p className="text-base text-[#000] font-nunito font-light text-justify px-4 py-">
+                    {testimonial.feedback}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </section>
   );
 };
