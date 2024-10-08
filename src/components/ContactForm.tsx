@@ -77,7 +77,6 @@ const ContactForm = () => {
       }
     },
   });
-
   const tutorFormik = useFormik({
     initialValues: {
       name: "",
@@ -91,8 +90,14 @@ const ContactForm = () => {
       try {
         await emailjs.send(
           "service_8t5xuyq",
-          "template_zugiozg",
-          values,
+          "template_fbffamu",
+          {
+            name: values.name,
+            email: values.email,
+            interest: values.interest,  
+            level: values.level,        
+            about: values.about,        
+          },
           "WFx0aQzdcj2KQV0Jt"
         );
         alert("Tutor Form Data Sent Successfully!");
@@ -102,6 +107,7 @@ const ContactForm = () => {
       }
     },
   });
+  
 
   return (
     <div
