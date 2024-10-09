@@ -6,6 +6,7 @@ import Blogs from "./pages/Blogs";
 import Navbar from "./components/Navbar";
 import ContactMe from "./components/ContactMe";
 import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 import ScrollToTop from "./ScrollToTop";
 
 const App: React.FC = () => {
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       </Routes>
       <ContactMe />
       <ContactForm />
+      <Footer />
     </Router>
   );
 };

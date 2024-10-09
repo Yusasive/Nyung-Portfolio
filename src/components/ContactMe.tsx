@@ -20,7 +20,7 @@ const contactMethods = [
     icon: "https://res.cloudinary.com/ddxssowqb/image/upload/v1727848118/mail_txfsqh.png",
     title: "Email",
     linkText: "My Mail",
-    url: "mailto:salamiibrahim57@gmail.com",
+    url: "mailto:hyyungnim@gmail.com",
     bgColor: "bg-[#F5D1C5]",
   },
 ];
