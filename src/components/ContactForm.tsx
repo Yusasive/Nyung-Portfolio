@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "emailjs-com";
 import { useLocation } from "react-router-dom";
-const checkEmailExists = async (email: string): Promise<boolean> => {
+import NotificationModal from "./NotificationModal"; // Import the modal
+
+const checkEmailExists = async (email: string) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       const existingEmails = ["test@example.com", "admin@example.com"];
@@ -11,6 +13,7 @@ const checkEmailExists = async (email: string): Promise<boolean> => {
     }, 1000);
   });
 };
+
 const designerValidationSchema = Yup.object({
   name: Yup.string().required("Name is required"),
   email: Yup.string()
@@ -47,6 +50,18 @@ const tutorValidationSchema = Yup.object({
 const ContactForm = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const [modalMessage, setModalMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = (message: React.SetStateAction<string>) => {
+    setModalMessage(message);
+    setIsModalOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsModalOpen(false);
+  };
+
   const designerFormik = useFormik({
     initialValues: {
       name: "",
@@ -59,8 +74,8 @@ const ContactForm = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         await emailjs.send(
-          "service_8t5xuyq",
-          "template_zugiozg",
+          "service_7sflp2l",
+          "template_xs439lp",
           {
             name: values.name,
             email: values.email,
@@ -68,15 +83,16 @@ const ContactForm = () => {
             projectBudget: values.projectBudget,
             description: values.description,
           },
-          "WFx0aQzdcj2KQV0Jt"
+          "CPbehCk2ACkWdbrp9"
         );
-        alert("Designer Form Data Sent Successfully!");
+        showModal("Designer Form Data Sent Successfully!");
         resetForm();
       } catch (error) {
-        alert("Failed to send designer form data. Please try again.");
+        showModal("Failed to send designer form data. Please try again.");
       }
     },
   });
+
   const tutorFormik = useFormik({
     initialValues: {
       name: "",
@@ -89,8 +105,8 @@ const ContactForm = () => {
     onSubmit: async (values, { resetForm }) => {
       try {
         await emailjs.send(
-          "service_8t5xuyq",
-          "template_fbffamu",
+          "service_7sflp2l",
+          "template_mo1q1ob",
           {
             name: values.name,
             email: values.email,
@@ -98,16 +114,15 @@ const ContactForm = () => {
             level: values.level,        
             about: values.about,        
           },
-          "WFx0aQzdcj2KQV0Jt"
+          "CPbehCk2ACkWdbrp9"
         );
-        alert("Tutor Form Data Sent Successfully!");
+        showModal("Tutor Form Data Sent Successfully!");
         resetForm();
       } catch (error) {
-        alert("Failed to send tutor form data. Please try again.");
+        showModal("Failed to send tutor form data. Please try again.");
       }
     },
   });
-  
 
   return (
     <div
@@ -124,7 +139,7 @@ const ContactForm = () => {
               tutorFormik.handleSubmit();
             }
           }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <h2 className="text-2xl text-[#1E1B16] font-roboto-serif font-bold">
                 Need a designer?
@@ -289,7 +304,6 @@ const ContactForm = () => {
               )}
             </div>
           </div>
-
           <div className="flex justify-center mt-[50px]">
             <button
               type="submit"
@@ -312,6 +326,11 @@ const ContactForm = () => {
           </div>
         </form>
       </div>
+      <NotificationModal
+        show={isModalOpen}
+        message={modalMessage}
+        onClose={hideModal}
+      />
     </div>
   );
 };
