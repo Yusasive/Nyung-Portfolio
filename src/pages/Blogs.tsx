@@ -43,7 +43,7 @@ const BlogPosts: React.FC = () => {
             />
           </div>
           <div className="p-4 lg:w-[55%]">
-            <h2 className="text-lg lg:text-[32px] text-[#494640] font-inter text-justify font-bold mb-2">
+            <h2 className="text-lg lg:text-[32px] text-[#494640] font-inter text-justify font-bold mb-2 leading-tight">
               {post.title}
             </h2>
 
