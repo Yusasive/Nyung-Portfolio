@@ -142,7 +142,7 @@ const TestimonialSlider: React.FC = () => {
                 <p className="text-xl text-[#fff] font-nunito font-bold mb-[10px]">
                   {testimonial.role}
                 </p>
-                <div className="flex flex-col bg-white rounded-2xl shadow-lg min-h-[600px] lg:h-[508px] mx-1 justify-start">
+                <div className="flex flex-col bg-white rounded-2xl shadow-lg h-[600px] lg:h-[490px] mx-1 justify-start">
                   <div className="flex justify-center mt-3">
                     <img
                       src={testimonial.image}
